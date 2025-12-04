@@ -205,10 +205,10 @@ export class ManagerUtils {
      * ```
      */
     isNotBrokenTrack(data: Track | UnresolvedTrack, minDuration = 29e3): data is Track {
-        if(typeof data?.info?.duration !== "number" || isNaN(data?.info?.duration)) return false;
-        if(data.info.duration <= Math.max(minDuration, 0)) return false;
+        if (typeof data?.info?.duration !== "number" || isNaN(data?.info?.duration)) return false;
+        if (data.info.duration <= Math.max(minDuration, 0)) return false;
 
-        if(!data.info) return false;
+        if (!data.info) return false;
 
         return this.isTrack(data);
     }
@@ -344,6 +344,9 @@ export class ManagerUtils {
         if (SourceLinksRegexes.gaana.test(queryString) && !node.info?.sourceManagers?.includes("gaana")) {
             throw new Error("Query / Link Provided for this Source but Lavalink Node has not 'gaana' enabled");
         }
+        if (SourceLinksRegexes.amazonmusic.test(queryString) && !node.info?.sourceManagers?.includes("amazonmusic")) {
+            throw new Error("Query / Link Provided for this Source but Lavalink Node has not 'amazonmusic' enabled");
+        }
         if (SourceLinksRegexes.lastfm.test(queryString) && !node.info?.sourceManagers?.includes("lastfm")) {
             throw new Error("Query / Link Provided for this Source but Lavalink Node has not 'lastfm' enabled");
         }
@@ -455,6 +458,9 @@ export class ManagerUtils {
         }
         if (["gnsearch", "gnrec"].includes(source) && !node.info?.sourceManagers?.includes("gaana")) {
             throw new Error("Lavalink Node has not 'gaana' enabled, which is required to have '" + source + "' work");
+        }
+        if (source === "amzsearch" && !node.info?.sourceManagers?.includes("amazonmusic")) {
+            throw new Error("Lavalink Node has not 'amazonmusic' enabled, which is required to have 'amzsearch' work");
         }
         if (source === "fmsearch" && !node.info?.sourceManagers?.includes("lastfm")) {
             throw new Error("Lavalink Node has not 'lastfm' enabled, which is required to have 'fmsearch' work");

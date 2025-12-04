@@ -73,6 +73,12 @@ export const DefaultSources: Record<SearchPlatform, LavalinkSearchPlatform | Cli
     "gnrec": "gnrec",
     "gaana music": "gnsearch",
     "gaanamusic": "gnsearch",
+    // amazonmusic (lavasrc)
+    "amazonmusic": "amzsearch",
+    "amazon music": "amzsearch",
+    "amazon": "amzsearch",
+    "amz": "amzsearch",
+    "amzsearch": "amzsearch",
     // speak PLUGIN
     "speak": "speak",
     "tts": "tts",
@@ -178,6 +184,9 @@ export const SourceLinksRegexes: Record<SourcesRegex, RegExp> = {
 
     /** From gaana */
     gaana: /https?:\/\/gaana\.com\/(?<type>song|album|playlist|artist)\/[^/]+(?:\/(?<id>[^/]+))?/,
+
+    /** From amazonmusic */
+    amazonmusic: /https?:\/\/music\.amazon\.[^/]+\/(?<type>albums|tracks|artists|playlists|user-playlists)\/(?<id>[A-Za-z0-9]+)(?:\/[^/?#]+)?(?:[/?].*)?$/,
 
     /** From pandora */
     PandoraTrackRegex: /^@?(?:https?:\/\/)?(?:www\.)?pandora\.com\/artist\/[\w\-]+(?:\/[\w\-]+)*\/(?<identifier>TR[A-Za-z0-9]+)(?:[?#].*)?$/,

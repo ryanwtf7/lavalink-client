@@ -35,6 +35,7 @@ export type LavaSrcSearchPlatformBase =
     "pdrec" |
     "gnsearch" |
     "gnrec" |
+    "amzsearch" |
     "fmsearch";
 export type LavaSrcSearchPlatform = LavaSrcSearchPlatformBase | "ftts";
 
@@ -72,6 +73,7 @@ export type ClientSearchPlatform =
     "yandex" | "yandex music" | "yandexmusic" | "vk" | "vk music" | "vkmusic" | "tidal" | "tidal music" | "qobuz" |
     "pandora" | "pd" | "pandora music" | "pandoramusic" |
     "gaana" | "gn" | "gaana music" | "gaanamusic" |
+    "amazonmusic" | "amazon music" | "amazon" | "amz" |
     "flowerytts" | "flowery" | "flowery.tts" | LavalinkClientSearchPlatformResolve | LavalinkClientSearchPlatform | "js" | "jiosaavn" | "td" | "tidal" | "tdrec" |
     "lastfm" | "last.fm" | "last-fm" | "fm";
 
@@ -118,6 +120,7 @@ export type SourcesRegex = "YoutubeRegex" |
     "PandoraPlaylistRegex" |
     "AllPandoraRegex" |
     "gaana" |
+    "amazonmusic" |
     "TwitchTv" |
     "vimeo" |
     "lastfm";
